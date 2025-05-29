@@ -1,0 +1,63 @@
+RewriteEngine On
+
+# 1. Allow internal requests from localhost or your domain (CSS, JS, images, etc.)
+# RewriteCond %{HTTP_REFERER} ^(http(s)?)?://localhost/ [NC]
+RewriteCond %{HTTP_REFERER} ^http(s)?://localhost/ [NC]
+RewriteCond %{REQUEST_URI} ^/(Assets|Components|Models|Pages|Controllers|public)/  [NC]
+RewriteCond %{REQUEST_URI} \.(css|js|png|PNG|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|otf|php|mp3|aac|ogg|wma|wav|mp4)$
+RewriteRule ^ - [L]
+
+# 2. Block direct access to files in /Assets/ or /components/ from any external request (direct access to the file)
+RewriteCond %{HTTP_REFERER} ^http(s)?://localhost/ [NC]
+RewriteCond %{REQUEST_URI} ^/(Assets|Components|Models|Pages|Controllers|public)/  [NC]
+RewriteCond %{REQUEST_URI} \.(css|js|png|PNG|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|otf|php|mp3|aac|ogg|wma|wav|mp4)$
+RewriteRule ^ - [F,L]
+
+# RewriteRule ^.*$ error.php [L]
+
+RewriteRule ^.*$ router.php [L]
+
+# RewriteRule ^$ index.php [L]
+# RewriteRule ^donation$ Pages/AllDonations.php [L]
+# RewriteRule ^users$ Pages/AllUsers.php [L]
+# RewriteRule ^sentdonation$ Pages/AllSentDonation.php [L]
+# RewriteRule ^project$ Pages/AllProjects.php [L]
+# RewriteRule ^beneficent$ Pages/AllBeneficent.php [L]
+
+
+
+# RewriteRule ^.*$ error.php [L]
+
+
+
+
+
+#  RewriteRule ^$ Controllers/DBConeectivity.php [L]
+#  RewriteRule ^.*$ error.php [L]
+
+
+#  RewriteRule ^$ Controllers/GetAllProjects.php [L]
+#  RewriteRule ^$ Controllers/GetDonations.php [L]
+#  RewriteRule ^$ Controllers/GetAllBeneficent.php [L]
+#  RewriteRule ^$ Controllers/GetAllUsers.php [L]
+#  RewriteRule ^$ Controllers/GetSingleData.php [L]
+#  RewriteRule ^$ Controllers/GetMoreInfo.php [L]
+
+
+# RewriteRule ^addlive$ Controllers/liveUpload.php [L]
+# RewriteRule ^login$ Controllers/LoginSubmition.php [L]
+# RewriteRule ^addvideo$ Controllers/videoUpload.php [L]
+# RewriteRule ^addlogo$ Controllers/LogoUpload.php [L]
+# RewriteRule ^deletevideo$ Controllers/DeleteVideo.php [L]
+# RewriteRule ^logout$ Controllers/Logout.php [L]
+# RewriteRule ^sendfeedback$ Controllers/FeedBackSubmition.php [L]
+# RewriteRule ^Community-All$ CommunityPlayList.php [L]
+# RewriteRule ^Politics-All$ PoliticalPlayList.php [L]
+# RewriteRule ^Religious-All$ ReligiousPlayList.php [L]
+# RewriteRule ^Stage-All$ StagePlayList.php [L]
+
+
+
+
+# ErrorDocument 404 /error.php
+
