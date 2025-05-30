@@ -1,0 +1,125 @@
+.hlsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.hls-player {
+  width: 100%;
+  height: auto;
+  animation: popup 1s ease;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.4);
+  }
+
+  90% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.live {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin: 15px;
+}
+
+.live h5 {
+  margin: 0px;
+  font-family: "Mukta Malar", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@media (min-width: 1600px) {
+  .live h5 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 1600px) {
+  .live h5 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .live h5 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .live h5 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .live h5 {
+    font-size: 1rem;
+  }
+}
+
+.liveIcon {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 100%;
+}
+
+.liveIcon {
+  animation: blink 0.6s linear infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.video {
+  width: 100%;
+  height: inherit;
+  border-radius: 15px;
+  object-fit: contain; /* Optional: add a border radius to the video itself */
+}
+
+.full-video {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 15px;
+  object-fit: contain; /* Optional: add a border radius to the video itself */
+}

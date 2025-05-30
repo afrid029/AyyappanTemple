@@ -27,6 +27,90 @@
             </div>
         </div>
     </div>
+    <div class="content">
+        <div class="liveContent">
+            <div class="liveTitle">SRI HARIHARASUDHAN TEMPLE LIVE</div>
+            <div class="livePlayer">
+                 <?php include('Components/LiveTv.php') ?>
+            </div>
+        </div>
+        <div class="eventContent">
+            <div class="eventTitle">SRI HARIHARASUDHAN TEMPLE UPCOMING EVENTS</div>
+            <div class="eventList">
+                <div class="event">
+                    <div class="eventHead">
+                        <h4>06.06.2025 | Event Name</h4>
+                        <small>15:00:00</small>
+                    </div>
+                    <hr>
+                    <div class="eventDesc">
+                        Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web 
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="eventHead">
+                        <h4>06.06.2025 | Event Name</h4>
+                        <small>15:00:00</small>
+                    </div>
+                    <hr>
+                    <div class="eventDesc">
+                        Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web 
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="eventHead">
+                        <h4>06.06.2025 | Event Name</h4>
+                        <small>15:00:00</small>
+                    </div>
+                    <hr>
+                    <div class="eventDesc">
+                        Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web 
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="eventHead">
+                        <h4>06.06.2025 | Event Name</h4>
+                        <small>15:00:00</small>
+                    </div>
+                    <hr>
+                    <div class="eventDesc">
+                        Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web 
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="eventHead">
+                        <h4>06.06.2025 | Event Name</h4>
+                        <small>15:00:00</small>
+                    </div>
+                    <hr>
+                    <div class="eventDesc">
+                        Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web 
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="eventHead">
+                        <h4>06.06.2025 | Event Name</h4>
+                        <small>15:00:00</small>
+                    </div>
+                    <hr>
+                    <div class="eventDesc">
+                        Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="contact">
+            <div>5288 GENERAL RD, MISSISSAUGA, ON LA4W 1Z8</div>
+            <div>PHONE: (905) 624-5658</div>
+            <div>hOURS : MON-FRI 7A.M - 1P.M, 5-9P.M</div>
+
+        </div>
+        <div class="about">
+
+        </div>
+    </div>
 </body>
 
 </html>
