@@ -1,0 +1,598 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background-color: #e2aa555e;
+  padding: 2%;
+}
+
+nav {
+  position: relative;
+}
+
+.nav-bg {
+  /* background-attachment: fixed; */
+  /* background-image: url("/Assets/Images/bgframe.jpg"); */
+  background-repeat: repeat-x;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  position: absolute;
+}
+.nav-container {
+  display: block;
+  /* grid-template-columns: 20% 80%; */
+  width: 100%;
+  margin: auto 10px;
+  position: relative;
+}
+
+.nav-image {
+  position: absolute;
+  padding: 5px 5px;
+  justify-content: center;
+  align-items: center;
+  left: 45px;
+}
+
+.nav-image-img {
+  width: 88px;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.nav-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flxdir {
+  flex-direction: column;
+}
+.nav-content h3 {
+  font-family: "Mukta Malar", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem;
+  color: white;
+}
+
+.logout {
+  display: grid;
+  justify-content: end;
+  align-items: end;
+  width: 100%;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  grid-auto-flow: column;
+  gap: 10px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.add-buttons {
+  display: flex;
+  width: 100%;
+  padding: 2%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.createBtn {
+  display: flex;
+  align-items: center;
+  background-color: #f9b44d;
+  padding: 1%;
+  border-radius: 15px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+.createBtn:hover {
+  background-color: oklch(39.6% 0.141 25.723);
+  transition: 0.4s;
+}
+
+.login-title {
+  padding: 2% 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5%;
+}
+
+.login-title h4 {
+  font-family: "Mukta Malar", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+.login-title hr {
+  width: 100%;
+}
+
+.form-bg,
+.event-viewer,
+.album-viewer {
+  width: 100%;
+  padding: 2%;
+  background-color: white;
+  border-radius: 12px;
+  margin-bottom: 2%;
+}
+
+.cal-body {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  width: 100%;
+}
+
+.tamil,
+.english {
+  width: 100%;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tamil h3,
+.english h3 {
+  font-weight: 600;
+  color: brown;
+  margin-bottom: 5px;
+}
+.month {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.month input {
+  box-shadow: 0px 0px 5px #000000;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.month label {
+  font-weight: 500;
+  color: #9c760e;
+}
+
+.month button {
+  padding: 5px;
+  width: 70%;
+  border-radius: 8px;
+  background-color: #f9b44d;
+  font-weight: 600;
+  color: #000000;
+}
+
+.event-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  /* max-height: 400px; */
+  overflow: auto;
+}
+
+.event-viewer::-webkit-scrollbar {
+  display: none;
+}
+
+.event-viewer-title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.event-viewer-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.event-ttl {
+  color:brown; font-weight: 600; font-size: 1.5rem;
+}
+
+.event-card {
+  width: 45%;
+  border-radius: 10px;
+  background-color: rgb(231, 233, 213);
+  box-shadow: 0px 0px 5px rgb(173, 148, 7);
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  justify-content: space-evenly;
+}
+
+.event-title {
+  display: inline-flex;
+  justify-content: start;
+}
+
+.event-info {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 15px;
+  position: relative;
+}
+
+.event-action {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.event-btn {
+  top: 5%;
+  right: 5%;
+  display: flex;
+  gap: 10px;
+}
+
+.event-btn .delete {
+  color: red;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(220, 163, 163);
+}
+
+.event-btn .edit {
+  color: rgb(128, 85, 0);
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #c6b68a;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.album-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  max-height: 400px;
+  overflow: auto;
+}
+
+.album-viewer::-webkit-scrollbar {
+  display: none;
+}
+
+.album-viewer-title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.album-viewer-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-evenly;
+}
+
+.album-card {
+  width: 25%;
+  border-radius: 10px;
+  background-color: rgb(231, 233, 213);
+  box-shadow: 0px 0px 5px rgb(173, 148, 7);
+  margin-bottom: 2%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  justify-content: space-evenly;
+}
+
+.album-title {
+  display: inline-flex;
+  justify-content: start;
+}
+
+.album-action {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.album-btn {
+  top: 5%;
+  right: 5%;
+  display: flex;
+  gap: 10px;
+}
+
+.album-btn .delete {
+  color: red;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(220, 163, 163);
+}
+
+.album-btn .edit {
+  color: rgb(128, 85, 0);
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #c6b68a;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#table-pagi {
+  padding: 20px;
+}
+.pagination {
+  display: flex;
+  gap: 15px;
+  font-family: "roboto", sans-serif;
+  font-size: 1vw;
+  align-items: center;
+}
+.pagination .selected {
+  color: rgb(233, 234, 238);
+  background-color: oklch(39.6% 0.141 25.723);
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination span {
+  font-weight: 600;
+  color: oklch(39.6% 0.141 25.723);
+  cursor: pointer;
+}
+
+.textPagi {
+  color: oklch(39.6% 0.141 25.723) !important;
+}
+
+.onrowload {
+  display: block;
+  background: rgb(171 168 168 / 44%);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: absolute;
+  width: inherit;
+  z-index: 7;
+  height: 100%;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.loading-spinner {
+  display: block;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  margin-top: 2vh;
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255),
+    rgb(136, 91, 39),
+    rgb(254, 254, 255)
+  );
+  background-size: 300% 300%;
+  z-index: 5;
+  animation: loading 5s ease infinite forwards alternate;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0% 50%;
+  }
+  20% {
+    background-position: 100% 50%;
+  }
+  40% {
+    background-position: 50% 100%;
+  }
+  60% {
+    background-position: 0% 50%;
+  }
+  80% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+
+@media (max-width : 700px) {
+  .nav-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .logout {
+    font-size: 0.8rem;
+  }
+
+  .logout svg {
+    height: 18px;
+  }
+
+  .createBtn {
+    font-size: 0.8rem;
+  }
+
+  .createBtn svg {
+    height: 15px;
+  }
+  .cal-body {
+    grid-template-columns: 100%;
+  }
+  .event-card {
+    width: 60%;
+  }
+
+  .event-viewer-content {
+    justify-content: center;
+  }
+
+  .month label {
+    font-size: 0.8rem;
+  }
+
+  .month input {
+    font-size: 0.8rem;
+  }
+
+  .month button {
+    font-size: 0.8rem;
+  }
+  .event-ttl {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width : 600px) {
+
+  .nav-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .logout {
+    font-size: 0.5rem;
+  }
+
+  .logout svg {
+    height: 15px;
+  }
+
+  .createBtn {
+    font-size: 0.6rem;
+  }
+
+  .createBtn svg {
+    height: 12px;
+  }
+
+  .event-card {
+    width: 80%;
+  }
+
+  .event-title, .album-title {
+    font-size: 0.8rem;
+  }
+
+  .album-card {
+    width: 40%;
+  }
+
+  .event-action {
+    font-size: 0.5rem;
+  }
+
+  .edit, .delete {
+    font-size: 0.4rem;
+  }
+
+   .month label {
+    font-size: 0.6rem;
+  }
+
+  .month input {
+    font-size: 0.5rem;
+  }
+
+  .month button {
+    font-size: 0.6rem;
+  }
+
+  .upload {
+    font-size: 0.9rem;
+  }
+   .event-ttl {
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width : 400px) {
+
+  .nav-content h3 {
+    font-size: 1rem;
+  }
+
+  .logout {
+    font-size: 0.5rem;
+  }
+
+  .logout svg {
+    height: 12px;
+  }
+
+  .createBtn {
+    font-size: 0.6rem;
+    padding-right: 8px;
+  }
+
+  .createBtn svg {
+    height: 12px;
+  }
+   .event-title,.album-title {
+    font-size: 0.6rem;
+  }
+
+   .month label {
+    font-size: 0.6rem;
+  }
+
+  .month input {
+    font-size: 0.4rem;
+  }
+
+  .month button {
+    font-size: 0.5rem;
+  }
+   .upload {
+    font-size: 0.7rem;
+  }
+   .event-ttl {
+    font-size: 0.7rem;
+  }
+}

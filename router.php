@@ -28,12 +28,6 @@ switch ($request) {
     case '/dashboard':
         require 'dashboard.php';
         break;
-    case '/calendar':
-        require 'calendar.php';
-        break;
-    case '/gallery':
-        require 'gallery.php';
-        break;
     default:
         http_response_code(404); // Not Found
         // require 'error.php';

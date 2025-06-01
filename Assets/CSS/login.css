@@ -1,0 +1,234 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-size: cover;
+  /* animation: ModelLoad 1s linear; */
+  animation: model 0.5s ease alternate;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50vw;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(179, 179, 179, 0.9);
+  transition: box-shadow 0.5s ease;
+}
+
+@keyframes model {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.closing {
+  animation: model-close 0.5s ease alternate;
+}
+
+@keyframes model-close {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.modal-content:hover {
+  box-shadow: 0px 0px 30px rgba(238, 238, 238, 0.9);
+}
+
+.close-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  border: 1px solid white;
+  transition: all 0.5s ease;
+}
+
+.close-button:hover {
+  background-color: transparent;
+  border-color: red;
+  color: red;
+}
+
+.Form {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+}
+
+.FormRow {
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 10px !important;
+}
+
+.FormRow label {
+  width: 95%;
+  margin-bottom: 10px !important;
+  margin: auto;
+  text-align: left;
+  font-family: 'roboto', sans-serif;
+}
+
+.FormRow input {
+  height: 40px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #00000030;
+  border-color: transparent;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.FormRow textarea {
+  height: 100px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #00000030;
+  border-color: transparent;
+  width: 100%;
+  padding-left: 5px;
+}
+
+.upload {
+  height: 40px;
+  width: 25%;
+  margin: auto;
+  border-radius: 8px;
+  border: transparent;
+  box-shadow: 0px 0px 12px rgb(190, 188, 188);
+  background-color: rgb(243, 162, 0);
+  color: black;
+  font-weight: 600;
+  margin-top: 5%;
+}
+
+.upload:disabled {
+   background-color: rgb(95, 70, 20);
+   color: white;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+
+.banner img {
+  width: 50px;
+  height: 50px;
+  animation: wave 2s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(270deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(450deg);
+  }
+}
+
+@media (min-width: 1600px) {
+  .banner h2 {
+    font-size: 24px;
+    margin: auto;
+    letter-spacing: 5px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .banner h2 {
+    font-size: 22px;
+    margin: auto;
+    letter-spacing: 4px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner h2 {
+    font-size: 21px;
+    margin: auto;
+    letter-spacing: 6px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner h2 {
+    font-size: 20px;
+    margin: auto;
+    letter-spacing: 5px;
+  }
+}
+
+@media (max-width: 786px) {
+  .banner h2 {
+    font-size: 20px;
+    margin: auto;
+    letter-spacing: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner h2 {
+    font-size: 18px;
+    margin: auto;
+    letter-spacing: 4px;
+  }
+
+  .upload {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .banner h2 {
+    font-size: 15px;
+    margin: auto;
+    letter-spacing: 3px;
+  }
+
+  .upload {
+    font-size: 0.5rem;
+  }
+}
