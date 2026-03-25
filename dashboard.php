@@ -50,29 +50,29 @@
 <body>
 
     <?php
-    
+
     if (isset($_SESSION['fromAction']) && $_SESSION['fromAction'] === true) { ?>
 
-    <div class="alert-container" id="alertSecond">
-        <div class="alert" id="alertContSecond">
-            <p><?php echo $_SESSION['message'] ?></p>
+        <div class="alert-container" id="alertSecond">
+            <div class="alert" id="alertContSecond">
+                <p><?php echo $_SESSION['message'] ?></p>
+            </div>
         </div>
-    </div>
 
-    <?php
+        <?php
         if ($_SESSION['status'] === true) {
             echo "<script>document.getElementById('alertContSecond').style.backgroundColor = '#1D7524';</script>";
         } else {
             echo "<script>document.getElementById('alertContSecond').style.backgroundColor = '#E44C4C';</script>";
         }
         ?>
-    <script>
-        document.getElementById('alertSecond').style.display = 'flex';
-        console.log('Alert triggerdd');
-        setTimeout(() => {
-            document.getElementById('alertSecond').style.display = 'none';
-        }, 7000);
-    </script>
+        <script>
+            document.getElementById('alertSecond').style.display = 'flex';
+            console.log('Alert triggerdd');
+            setTimeout(() => {
+                document.getElementById('alertSecond').style.display = 'none';
+            }, 7000);
+        </script>
     <?php
     }
     $_SESSION['fromAction'] = false;
@@ -98,9 +98,8 @@
         $passedArray = unserialize($decryptedData);
         // $result = mysqli_query($db, $query);
 
-            $_SESSION['email'] = $passedArray['email'];
-            $_SESSION['role'] = $passedArray['role'];
-       
+        $_SESSION['email'] = $passedArray['email'];
+        $_SESSION['role'] = $passedArray['role'];
     }
 
     ?>
@@ -108,19 +107,28 @@
     <div class="add-buttons">
         <div onclick="handleModel('event-model', true)" class="createBtn">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
-                <path d="M427-427H180.78v-106H427v-246.22h106V-533h246.22v106H533v246.22H427V-427Z" /></svg> &nbsp;
+                <path d="M427-427H180.78v-106H427v-246.22h106V-533h246.22v106H533v246.22H427V-427Z" />
+            </svg> &nbsp;
             Event
         </div>
 
         <?php
-            if($_SESSION['role'] === 'superadmin') { ?>
-        <div onclick="handleModel('user-model', true)" class="createBtn">
+        if ($_SESSION['role'] === 'superadmin') { ?>
+            <div onclick="handleModel('user-model', true)" class="createBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                    <path d="M427-427H180.78v-106H427v-246.22h106V-533h246.22v106H533v246.22H427V-427Z" />
+                </svg> &nbsp;
+                Admin
+            </div> <?php
+                }
+                    ?>
+
+        <div onclick="handleModel('notice-model', true)" class="createBtn">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
-                <path d="M427-427H180.78v-106H427v-246.22h106V-533h246.22v106H533v246.22H427V-427Z" /></svg> &nbsp;
-            Admin
-        </div> <?php
-            }
-      ?>
+                <path d="M427-427H180.78v-106H427v-246.22h106V-533h246.22v106H533v246.22H427V-427Z" />
+            </svg> &nbsp;
+            Notice
+        </div>
 
     </div>
     <!-- Alert -->
@@ -332,6 +340,57 @@
         </div>
     </div>
 
+    <!-- Add Notice -->
+    <div id="notice-model" class="model-overlay">
+        <div class="model-body">
+            <div class="model-content">
+                <div class="login-form">
+                    <div onclick="handleModel('notice-model', false)" class="close-btn"><div>x</div></div>
+                    <div class="login-title">
+                        <h4>Add Notices</h4>
+                        <hr>
+                    </div>
+                    <div class="login-content">
+                        <form id="add-notice-form" method="post" oninput="validateAddNoticeForm()">
+                            <div class="Form">
+                                <div class="FormRow">
+                                    <label htmlFor="notice-title">Title</label>
+                                    <input type="text" name="notice-title" id="notice-title" required />
+                                </div>
+                                <div class="FormRow">
+                                    <label htmlFor="notice-date">Date</label>
+                                    <input type="date" name="notice-date" id="notice-date" required></input>
+                                </div>
+
+                                <div class="FormRow">
+                                    <label style="font-weight: 600; color: brown" for="tamnotice">Upload Notice (Tamil)</label>
+                                    <input type="file" accept="image/jpeg, image/png, image/gif, image/jpg" name="tamnotice"
+                                        id="tamnotice" required />
+                                </div>
+                                <div class="FormRow">
+                                    <label style="font-weight: 600; color: brown" for="engnotice">Upload Notice (English)</label>
+                                    <input type="file" accept="image/jpeg, image/png, image/gif, image/jpg" name="engnotice"
+                                        id="engnotice" required />
+                                </div>
+
+
+                                <button type="submit" id="add-notice-submit" name="submit" disabled="true"
+                                    class="upload">
+                                    Submit
+                                </button>
+
+                                <button style="display: none;" id="add-notice-submiting" disabled="true" class="upload">
+                                    Submitting...
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- View Events -->
     <div class="event-viewer">
         <div class="event-viewer-title">
@@ -345,24 +404,26 @@
 
     </div>
 
+    <!-- View Notices -->
+
     <!-- View User -->
 
     <?php
-            if($_SESSION['role'] === 'superadmin') { ?>
+    if ($_SESSION['role'] === 'superadmin') { ?>
 
-    <div class="event-viewer">
-        <div class="event-viewer-title">
-            <h2 class="event-ttl">Users</h2>
-            <hr>
-        </div>
-        <div id="user-loading-spinner" class="loading-spinner"></div>
-        <div id="user-viewer-content" class="event-viewer-content">
+        <div class="event-viewer">
+            <div class="event-viewer-title">
+                <h2 class="event-ttl">Users</h2>
+                <hr>
+            </div>
+            <div id="user-loading-spinner" class="loading-spinner"></div>
+            <div id="user-viewer-content" class="event-viewer-content">
 
-        </div>
+            </div>
 
         <?php
-            }
-      ?>
+    }
+        ?>
 
 </body>
 
@@ -635,13 +696,13 @@
                 const dataContainer = document.getElementById('event-viewer-content')
                 // const userContainer = document.getElementById('user-viewer-content')
 
-                if(document.getElementById('user-viewer-content')) {
+                if (document.getElementById('user-viewer-content')) {
                     const userContainer = document.getElementById('user-viewer-content')
                     userContainer.innerHTML = response.userHtml;
-                     document.getElementById('user-loading-spinner').style.display = 'none';
+                    document.getElementById('user-loading-spinner').style.display = 'none';
                 }
                 dataContainer.innerHTML = response.html;
-                
+
                 // resizeWindow();
                 // dataContainer.classList.remove('fade-in'); // Remove the class to reset animation
                 // void dataContainer.offsetWidth; // Trigger reflow

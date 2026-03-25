@@ -64,6 +64,7 @@
   transform: translateX(-50%) translateY(-45%);
   border: 11px solid #a82827;
 }
+
 .login {
   position: absolute;
   right: 2%;
@@ -72,9 +73,9 @@
   align-items: center;
   color: white !important;
   bottom: 2%;
-    cursor: pointer;
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: 600;
+  cursor: pointer;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
 
 }
 
@@ -164,6 +165,7 @@
   border-radius: 8px;
   padding: 5px;
 }
+
 .eventHead {
   display: inline-flex;
   flex-direction: column;
@@ -186,6 +188,114 @@
   font-family: "Titillium Web", sans-serif;
   color: #ffffff70;
   margin-left: 15px;
+}
+
+.notice-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4%;
+  position: relative;
+  padding: 20px 15px;
+
+  /* From https://css.glass */
+background: rgb(245 169 0);
+box-shadow: 0 4px 30px rgb(71 67 67 / 74%);
+backdrop-filter: blur(7.4px);
+-webkit-backdrop-filter: blur(7.4px);
+border-radius: 8px;
+  /* background-image: url("../Images/dome.jpg"); */
+}
+
+.notice-content-bg {
+  background-image: url("../Images/dome.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+}
+
+.notice-title {
+  position: absolute;
+  top: 0;
+  width: 20%;
+  text-align: center;
+  padding: 15px;
+  background-color: #a42826;
+  transform: translateY(-50%);
+  border-radius: 16px;
+  color: white;
+  font-weight: 600;
+  font-family: "acme", sans-serif;
+  letter-spacing: 2px
+}
+
+.noticelist {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  justify-content: center;
+  gap: 5%;
+  padding: 40px;
+}
+
+.notice-item {
+  width: 100%;
+  position: relative;
+}
+
+.notice-img {
+  width: 100%;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.notice-img img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: gigle 1s ease-in-out 0s 1 normal forwards;
+}
+
+.notice-info {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin-top: 1.5rem;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.notice-info h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #161616;
+}
+.notice-info h4 {
+  text-align: center;
+  font-size: 1rem;
+  color: #16161697;
+}
+
+@keyframes gigle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+  
 }
 
 .footer-body {
@@ -354,7 +464,7 @@
     font-size: 1.4rem;
   }
 
-   .login {
+  .login {
     font-size: 1.8rem;
   }
 }
@@ -413,7 +523,7 @@
     font-size: 0.8rem;
   }
 
-   .login {
+  .login {
     font-size: 1.5rem;
   }
 }
@@ -472,7 +582,7 @@
     font-size: 0.8rem;
   }
 
-   .login {
+  .login {
     font-size: 1.3rem;
   }
 }
@@ -590,6 +700,7 @@
   .banner {
     height: 12%;
   }
+
   .banner-title {
     font-size: 1.3rem;
   }
@@ -644,7 +755,8 @@
   .about div {
     font-size: 0.7rem;
   }
-   .login {
+
+  .login {
     font-size: 1rem;
   }
 }
@@ -653,6 +765,7 @@
   .banner {
     height: 12%;
   }
+
   .banner-title {
     font-size: 1.1rem;
   }
@@ -708,7 +821,7 @@
     font-size: 0.7rem;
   }
 
-   .login {
+  .login {
     font-size: 0.8rem;
   }
 }
@@ -717,28 +830,29 @@
   .banner {
     height: 23%;
   }
-  .banner-title{
+
+  .banner-title {
     font-size: 1rem;
   }
 
-   .banner-img {
+  .banner-img {
     width: 12%;
     top: 75%;
   }
 
-   .liveTitle,
+  .liveTitle,
   .eventTitle {
     font-size: 0.8rem;
   }
 
-   .login {
+  .login {
     font-size: 0.7rem;
   }
 }
 
 @media (max-width: 600px) {
 
-   .banner-title{
+  .banner-title {
     font-size: 0.85rem;
     letter-spacing: 3px;
   }
@@ -746,10 +860,10 @@
   .liveTitle,
   .eventTitle {
     font-size: 0.6rem;
-    
+
   }
 
-  .footer{
+  .footer {
     display: flex;
     flex-direction: column-reverse;
     gap: 25px;
@@ -764,7 +878,7 @@
     margin-top: 12%;
   }
 
-   .contact h4,
+  .contact h4,
   .about h4 {
     font-size: 1rem;
   }
@@ -782,7 +896,7 @@
     font-size: 0.5rem;
   }
 
-   .login {
+  .login {
     font-size: 0.55rem;
   }
 
@@ -791,11 +905,11 @@
 
 @media (max-width: 430px) {
 
-  .banner{
+  .banner {
     height: 10%;
   }
 
-   .banner-title{
+  .banner-title {
     font-size: 0.85rem;
     letter-spacing: 3px;
   }
@@ -803,10 +917,10 @@
   .liveTitle,
   .eventTitle {
     font-size: 0.6rem;
-    
+
   }
 
-  .footer{
+  .footer {
     display: flex;
     flex-direction: column-reverse;
     gap: 25px;
@@ -821,7 +935,7 @@
     margin-top: 12%;
   }
 
-   .contact h4,
+  .contact h4,
   .about h4 {
     font-size: 1rem;
   }
@@ -846,5 +960,3 @@
     letter-spacing: 1;
   }
 }
-
-

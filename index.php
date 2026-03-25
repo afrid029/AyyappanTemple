@@ -84,9 +84,63 @@
         <div class="eventContent">
             <div class="eventTitle">SRI HARIHARASUDHAN TEMPLE UPCOMING EVENTS</div>
             <div id="event-details" class="eventList">
-               
+         
                 
             </div>
+        </div>
+    </div>
+    <div class="notice-content">
+        <div class="notice-content-bg"></div>
+        <div class="notice-title">NOTICES</div>
+        <div id="notice-details" class="noticeList">
+            <div class="notice-item">
+                <div class="notice-img">
+                    <img src="./Assets/Images/dome.jpg" alt="" srcset="">
+                </div>
+                <div class="notice-info">
+                    <h3>Hada oiiasns odnasd ndas oasdaso sd </h3>
+                    <h4>01-01-2025</h4>
+                </div>
+            </div>
+            <div class="notice-item">
+                <div class="notice-img">
+                    <img src="./Assets/Images/dome.jpg" alt="" srcset="">
+                </div>
+                <div class="notice-info">
+                    <h3>Hada oiiasns odnasd ndas oasdaso sd </h3>
+                    <h4>01-01-2025</h4>
+                </div>
+            </div>
+            <div class="notice-item">
+                <div class="notice-img">
+                    <img src="./Assets/Images/dome.jpg" alt="" srcset="">
+                </div>
+                <div class="notice-info">
+                    <h3>Hada oiiasns odnasd ndas oasdaso sd </h3>
+                    <h4>01-01-2025</h4>
+                </div>
+            </div>
+            <div class="notice-item">
+                <div class="notice-img">
+                    <img src="./Assets/Images/logo.jpeg" alt="" srcset="">
+                </div>
+                <div class="notice-info">
+                    <h3>Hada oiiasns odnasd ndas oasdaso sd </h3>
+                    <h4>01-01-2025</h4>
+                </div>
+            </div>
+            <div class="notice-item">
+                <div class="notice-img">
+                    <img src="./Assets/Images/dome.jpg" alt="" srcset="">
+                </div>
+                <div class="notice-info">
+                    <h3>Hada oiiasns odnasd ndas oasdaso sd </h3>
+                    <h4>01-01-2025</h4>
+                </div>
+            </div>
+
+            
+
         </div>
     </div>
     <footer class="footer-body">

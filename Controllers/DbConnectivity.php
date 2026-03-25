@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-    // $db = mysqli_connect('localhost', 'root', '', 'ayyappan');
+    $db = mysqli_connect('localhost', 'root', '', 'ayyappan');
     
     if (!$db) {
         throw new Exception("Database connection failed");
