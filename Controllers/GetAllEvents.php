@@ -1,7 +1,7 @@
 <?php
 include('DbConnectivity.php');
 
-$query="SELECT *
+$query = "SELECT *
 from events Where date >= CURRENT_DATE
 ORDER BY date asc, time asc";
 
@@ -13,71 +13,65 @@ $html = '';
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
+        $data = json_encode($row);
         $html .= "
-
-
-                     <div class='event-card'>
-                <div class='event-title'>
-                   ".$row['title']."
+        <div class='bg-white border border-amber-100 rounded-xl shadow-sm hover:shadow-md transition overflow-hidden'>
+            <div class='bg-red-900 px-4 py-3'>
+                <h3 class='text-white font-bold text-sm truncate'>" . htmlspecialchars($row['title']) . "</h3>
+            </div>
+            <div class='p-4 flex flex-col gap-2'>
+                <div class='flex items-center gap-2 text-gray-500 text-xs'>
+                    <span>" . htmlspecialchars($row['date']) . "</span>
+                    <span class='text-gray-300'>&#9679;</span>
+                    <span>" . htmlspecialchars($row['time']) . "</span>
                 </div>
-                <hr>
-                <div class='event-info'>
-                   <div class='event-action'>
-                        <p>". $row['date'] ."</p>
-                        <p>". $row['time'] ."</p>
-                   </div>
-                    <div class='event-btn'>
-                        <button onclick='EditEvent(".json_encode($row).")' class='edit'>Edit</button>
-                        <button onclick='DeleteEvent(".json_encode($row).")' class='delete'>Delete</button>
-                    </div>
+                <p class='text-gray-600 text-xs line-clamp-3'>" . htmlspecialchars($row['description']) . "</p>
+                <div class='flex gap-2 mt-2'>
+                    <button onclick='EditEvent($data)' class='flex-1 bg-amber-500 hover:bg-amber-400 text-white text-xs font-semibold py-2 rounded-lg transition'>Edit</button>
+                    <button onclick='DeleteEvent($data)' class='flex-1 bg-red-700 hover:bg-red-600 text-white text-xs font-semibold py-2 rounded-lg transition'>Delete</button>
                 </div>
-            </div>";
+            </div>
+        </div>";
     }
 } else {
-    $html .= "<div style='display: grid;justify-self: flex-start;width: 100%'>
-    <div style='grid-column: span 5; text-align: left; font-size: 12px; font-weight:700;'>No Upcoming Events Found.</div>
-    </div>";
+    $html .= "<div class='col-span-3 text-center text-gray-400 text-sm py-6 font-semibold'>No upcoming events found.</div>";
 }
 
 $userHtml = "";
 
-if($_SESSION['role'] === 'superadmin'){ 
-$query = "SELECT * FROM users where role='Admin'";
-$result1 = mysqli_query($db, $query);
+if ($_SESSION['role'] === 'superadmin') {
+    $query = "SELECT * FROM users where role='Admin'";
+    $result1 = mysqli_query($db, $query);
 
 
 
- while($row = mysqli_fetch_assoc($result1)){
-            $class = $row['status'] ? 'active-status' : 'deactive-status';
-            $staus = $row['status'] ? 'Active' : 'Disabled';
-            $data = [
-                'ID' => $row['ID'],
-                'email' => $row['email'],
-                'role' => $row['role'],
-                'password' => $row['password'],
-                'status' => $row['status']
-            ];
+    while ($row = mysqli_fetch_assoc($result1)) {
+        $class = $row['status'] ? 'active-status' : 'deactive-status';
+        $staus = $row['status'] ? 'Active' : 'Disabled';
+        $data = [
+            'ID' => $row['ID'],
+            'email' => $row['email'],
+            'role' => $row['role'],
+            'status' => $row['status']
+        ];
 
-            $data = json_encode($data);
-            $userHtml .= "<div class='program'>
-            <h3>". $row['email'] ."</h3>
-            <div class='program-bar'>
-                <div class='next-slot user-status'>
-                     <div class = '". $class ."'></div>
-                    <div>Status : ". $staus ."</div>
-
+        $dataJson = json_encode($data);
+        $statusDot = $row['status']
+            ? "<span class='inline-block w-2 h-2 rounded-full bg-green-500 mr-1'></span>"
+            : "<span class='inline-block w-2 h-2 rounded-full bg-red-400 mr-1'></span>";
+        $userHtml .= "
+            <div class='bg-white border border-amber-100 rounded-xl shadow-sm hover:shadow-md transition overflow-hidden'>
+                <div class='bg-red-900 px-4 py-3'>
+                    <h3 class='text-white font-bold text-sm truncate'>" . htmlspecialchars($row['email']) . "</h3>
                 </div>
-
-                <div class='modify'>
-                    <div  onclick=EditUser(". $data .") class='edit'>
-                        Edit
+                <div class='p-4 flex items-center justify-between gap-2'>
+                    <div class='flex items-center gap-1 text-xs font-semibold text-gray-600'>
+                        $statusDot $staus
                     </div>
+                    <button onclick='EditUser($dataJson)' class='bg-amber-500 hover:bg-amber-400 text-white text-xs font-semibold px-4 py-2 rounded-lg transition'>Edit</button>
                 </div>
-            </div>
-        </div>";
-
-        }
-
+            </div>";
+    }
 }
 
 

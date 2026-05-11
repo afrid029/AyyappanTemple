@@ -2,7 +2,7 @@
 include('DbConnectivity.php');
 
 
-$query="SELECT *
+$query = "SELECT *
 from events Where date >= CURRENT_DATE
 ORDER BY date asc, time asc
 LIMIT 10";
@@ -20,21 +20,18 @@ if (mysqli_num_rows($result) > 0) {
         $time = $row['time'];
         $desc = $row['description'];
 
-         $html .= "<div class='event'>
-                    <div class='eventHead'>
-                        <h4>".$date." | ".$name."</h4>
-                        <small>".$time."</small>
+        $html .= "<div class='bg-white bg-opacity-90 rounded-xl p-4 shadow'>
+                    <div class='flex justify-between items-center mb-1'>
+                        <h4 class='font-bold text-red-900 text-sm leading-snug'>" . $name . "</h4>
+                        <span class='text-xs text-amber-600 font-semibold whitespace-nowrap ml-2'>" . $time . "</span>
                     </div>
-                    <hr>
-                    <div class='eventDesc'>
-                       ".$desc."
-                    </div>
+                    <p class='text-xs text-gray-500 mb-2'>" . $date . "</p>
+                    <hr class='border-amber-200 mb-2'>
+                    <p class='text-xs text-gray-700 leading-relaxed'>" . $desc . "</p>
                 </div>";
     }
 } else {
-    $html .= "<div style='display: grid;justify-self: flex-start;width: 100%'>
-    <div class='no-event'>No Upcoming Events Found.</div>
-    </div>";
+    $html .= "<div class='p-4 text-center text-red-200 text-sm font-semibold'>No Upcoming Events Found.</div>";
 }
 
 
@@ -44,5 +41,3 @@ mysqli_close($db);
 echo json_encode([
     'html' => $html
 ]);
-
-
